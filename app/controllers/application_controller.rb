@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
     include ActionController::Cookies
     before_action :authenticate_user
+    skip_before_filter :verify_authenticity_token
   
       private 
   
