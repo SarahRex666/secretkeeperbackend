@@ -15,6 +15,13 @@ module Secretkeeper
     config.middleware.use ActionDispatch::Cookies
     config.middleware.use ActionDispatch::Session::CookieStore
 
+    config.middleware.insert_before 0, Rack::Cors do
+      allow do
+        origins '*'
+        resource '*', :headers => :any, :methods => [:get, :post, :options]
+      end
+    end
+
     config.session_store :cookie_store, key: '_interslice_session'
 
     # config.action_dispatch.cookies_same_site_protection = :strict
