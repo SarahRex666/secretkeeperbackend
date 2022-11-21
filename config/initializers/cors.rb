@@ -1,6 +1,6 @@
 Rails.application.config.middleware.insert_before 0, Rack::Cors do 
     allow do
-      origin 'https://secretkeepernext.vercel.app/'
+      origin '*'
     
       resource '*',
         headers: :any,
